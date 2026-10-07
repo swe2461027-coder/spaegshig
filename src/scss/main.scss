@@ -3,9 +3,9 @@
 $primaryColor: #2bac73;
 $secondaryColor: #ff914d;
 
-@import "../../node_modules/bulma/bulma";
+@import "bulma/bulma";
 
-// Логоны стиль
+// Logo style
 .navbar-brand .app-logo {
   display: flex;
   align-items: center;
@@ -26,7 +26,7 @@ $secondaryColor: #ff914d;
   }
 }
 
-// Икон болон текст хоорондын зай
+// Nav items
 .navbar-item {
   display: flex;
   align-items: center;
@@ -39,7 +39,7 @@ $secondaryColor: #ff914d;
   }
 }
 
-// Иконы өнгөнүүд
+// Icon colors
 .text-orange { color: #ffb703; }
 .text-green { color: #2bac73; }
 .text-blue { color: #3a86ef; }
@@ -52,10 +52,10 @@ $secondaryColor: #ff914d;
   cursor: pointer;
 }
 
-// Mobile стиль
+// Mobile sidebar view
 @media screen and (max-width: 1023px) {
   .navbar-menu.is-active {
-    display: block;
+    display: block !important;
     position: fixed;
     top: 0;
     right: 0;
