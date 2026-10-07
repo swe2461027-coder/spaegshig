@@ -1,77 +1,59 @@
 export function renderNavbar() {
-  return `
-    <header class="app-sticky app-shadow">
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="container">
-          <div class="navbar-brand">
-            <a class="navbar-item has-text-weight-bold is-uppercase app-logo" href="#/overview">
-              <figure class="image"><img src="./img/icon/icon.png" alt="logo" /></figure>
-              <p><span>Mongolian</span> Food Composition Database</p>
+  const navbarHTML = `
+    <nav class="navbar is-white app-sticky app-shadow" role="navigation" aria-label="main navigation">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item app-logo" href="#/overview">
+            <img src="./img/icon/icon.png" alt="Logo">
+            <span class="logo-text-orange">MONGOLIAN</span>
+            <span class="logo-text-green">FOOD COMPOSITION DATABASE</span>
+          </a>
+
+          <a role="button" class="navbar-burger" id="navbarBurger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div id="navbarMenu" class="navbar-menu">
+          <div class="navbar-end">
+            <a href="#/overview" class="navbar-item">
+              <i class="fas fa-question-circle text-orange"></i> Overview
             </a>
-            <a class="navbar-burger" role="button" aria-expanded="false" data-target="topNavbar">
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
+            <a href="#/search" class="navbar-item">
+              <i class="fas fa-search text-green"></i> Search
             </a>
-          </div>
-
-          <div class="navbar-menu has-text-weight-semibold has-text-centered" id="topNavbar">
-            <div class="navbar-start app-top-navbar-right">
-              <a class="navbar-item" href="#/overview">
-                <span class="icon has-text-warning">
-                  <i class="fas fa-circle-question"></i>
-                </span>
-                <span>Overview</span>
-              </a>
-              <a class="navbar-item" href="#/search">
-                <span class="icon has-text-primary">
-                  <i class="fas fa-search"></i>
-                </span>
-                <span>Search</span>
-              </a>
-              <a class="navbar-item" href="#/calculation">
-                <span class="icon has-text-link">
-                  <i class="fas fa-calculator"></i>
-                </span>
-                <span>Food Calculator</span>
-              </a>
-              <a class="navbar-item" href="#/books">
-                <span class="icon has-text-info">
-                  <i class="fas fa-book"></i>
-                </span>
-                <span>Books</span>
-              </a>
-
-              <a class="navbar-item" href="#/contact">
-                <span class="icon has-text-danger">
-                  <i class="fas fa-address-card"></i>
-                </span>
-                <span>Contact us</span>
-              </a>
-            </div>
-
-            <div class="navbar-end">
-              <a class="navbar-item" href="#">MN</a>
-            </div>
+            <a href="#/calculation" class="navbar-item">
+              <i class="fas fa-calculator text-blue"></i> Food Calculator
+            </a>
+            <a href="#/books" class="navbar-item">
+              <i class="fas fa-book text-lightblue"></i> Books
+            </a>
+            <a href="#/contact" class="navbar-item">
+              <i class="fas fa-address-card text-pink"></i> Contact us
+            </a>
+            <span class="navbar-item lang-switch">MN</span>
           </div>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
   `;
-}
 
-export function initNavbar() {
-  const burger = document.querySelector(".navbar-burger");
-  const menu = document.getElementById("topNavbar");
-
-  if (!burger || !menu) return;
-
-  burger.addEventListener("click", () => {
-    burger.classList.toggle("is-active");
-    menu.classList.toggle("is-active");
-
-    const isExpanded = burger.classList.contains("is-active");
-    burger.setAttribute("aria-expanded", String(isExpanded));
-  });
+  // DOM руу оруулах
+  const headerElem = document.getElementById("app-header");
+  if (headerElem) {
+    headerElem.innerHTML = navbarHTML;
+    
+    // Burger товчлуур дээр дарахад цэс нээгдэх event
+    const burger = document.getElementById("navbarBurger");
+    const menu = document.getElementById("navbarMenu");
+    
+    if (burger && menu) {
+      burger.addEventListener("click", () => {
+        burger.classList.toggle("is-active");
+        menu.classList.toggle("is-active");
+      });
+    }
+  }
 }

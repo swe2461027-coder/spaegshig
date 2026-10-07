@@ -1,63 +1,76 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
-@import url("https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css");
+@use "sass:color";
 
-:root {
-  --brand: #2f7d4f;
-  --brand-dark: #1f5a38;
-  --bg: #f4f7f3;
+// Variables
+$primaryColor: #2bac73;
+$secondaryColor: #ff914d;
+
+// Bulma импортлох (Зам болон @use арга)
+@import "bulma/bulma";
+
+// Logo style
+.navbar-brand .app-logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+  font-size: 0.95rem;
+
+  img {
+    max-height: 38px;
+  }
+
+  .logo-text-orange {
+    color: $secondaryColor;
+  }
+
+  .logo-text-green {
+    color: $primaryColor;
+  }
 }
 
-body {
-  background: var(--bg);
-  font-family: "Inter", system-ui, sans-serif;
+// Nav items
+.navbar-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #4a4a4a;
+  font-weight: 500;
+
+  &:hover {
+    color: $primaryColor;
+  }
 }
 
-.site-header {
-  background: linear-gradient(135deg, var(--brand-dark), var(--brand));
-  padding: 2.5rem 1.5rem 2rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+// Icon colors
+.text-orange { color: #ffb703; }
+.text-green { color: #2bac73; }
+.text-blue { color: #3a86ef; }
+.text-lightblue { color: #00b4d8; }
+.text-pink { color: #ff4d6d; }
+
+.lang-switch {
+  color: $secondaryColor;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.site-header .title { color: #fff; margin-bottom: 0.25rem; }
+// Mobile sidebar view
+@media screen and (max-width: 1023px) {
+  .navbar-menu.is-active {
+    display: block !important;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 260px;
+    background: #ffffff;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    padding-top: 60px;
 
-.site-header .subtitle {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.site-header .button {
-  border: none;
-  border-radius: 999px;
-  font-weight: 600;
-  transition: transform 0.15s, background 0.15s;
-}
-
-.site-header .button.is-light {
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff;
-}
-
-.site-header .button.is-light:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
-}
-
-.site-header .button.is-primary {
-  background: #fff;
-  color: var(--brand-dark);
-}
-
-#app > * { animation: fadeIn 0.35s ease; }
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: none; }
-}
-
-.site-footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  color: #7a8a7f;
-  font-size: 0.9rem;
+    .navbar-item {
+      padding: 12px 20px;
+      font-size: 1.1rem;
+    }
+  }
 }
