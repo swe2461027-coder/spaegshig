@@ -22600,76 +22600,131 @@ has-background-danger.is-hoverable:active {
   pointer-events: all !important;
 }
 
-.navbar-brand .app-logo {
+body {
+  background: #f3f5f3;
+  color: #333;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: bold;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+.app-header {
+  background: linear-gradient(135deg, #1f6b3f, #2f8a52);
+  color: #fff;
+  padding: 1.5rem 0 1.25rem;
+}
+
+.app-header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.app-brand {
+  color: #fff;
+}
+.app-brand:hover {
+  color: #fff;
+}
+
+.app-brand-title {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #fff;
+}
+
+.app-brand-sub {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 0.15rem;
+}
+
+.app-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+.app-pill {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.5rem 1.15rem;
+  border-radius: 999px;
+  transition: background 0.15s;
+}
+.app-pill:hover {
+  background: rgba(255, 255, 255, 0.32);
+  color: #fff;
+}
+.app-pill.is-active {
+  background: #fff;
+  color: #1f6b3f;
+}
+
+.app-lang {
+  flex-shrink: 0;
+  padding: 0.35rem 0.9rem;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #2d3436;
+  margin-bottom: 0.5rem;
+}
+
+.page-text {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1f6b3f;
+  line-height: 1.2;
+}
+
+.stat-label {
+  color: #666;
   font-size: 0.95rem;
 }
-.navbar-brand .app-logo img {
-  max-height: 38px;
-}
-.navbar-brand .app-logo .logo-text-orange {
-  color: #ff914d;
-}
-.navbar-brand .app-logo .logo-text-green {
-  color: #2bac73;
+
+.app-footer {
+  text-align: center;
+  color: #888;
+  font-size: 0.9rem;
+  padding: 2rem 1rem;
 }
 
-.navbar-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #4a4a4a;
-  font-weight: 500;
-}
-.navbar-item:hover {
-  color: #2bac73;
-}
-
-.text-orange {
-  color: #ffb703;
-}
-
-.text-green {
-  color: #2bac73;
-}
-
-.text-blue {
-  color: #3a86ef;
-}
-
-.text-lightblue {
-  color: #00b4d8;
-}
-
-.text-pink {
-  color: #ff4d6d;
-}
-
-.lang-switch {
-  color: #ff914d;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-@media screen and (max-width: 1023px) {
-  .navbar-menu.is-active {
-    display: block !important;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 260px;
-    background: #ffffff;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 9999;
-    padding-top: 60px;
+@media screen and (max-width: 600px) {
+  .app-brand-title {
+    font-size: 1.4rem;
   }
-  .navbar-menu.is-active .navbar-item {
-    padding: 12px 20px;
-    font-size: 1.1rem;
+  .app-brand-sub {
+    font-size: 0.85rem;
   }
 }
 

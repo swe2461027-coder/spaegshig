@@ -1,8 +1,11 @@
 import { mountNavbar } from "./components/navbar.js";
 import { initRouter } from "./router.js";
 import { routes } from "./routes.js";
+import { t } from "./i18n/i18n.js";
 
-const navbarRoot = document.getElementById("app-header");
-mountNavbar(navbarRoot);
+mountNavbar(document.getElementById("navbar"));
+
+const footer = document.getElementById("footer");
+if (footer) footer.textContent = t("footer");
 
 initRouter(routes);
